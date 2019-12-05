@@ -29,7 +29,7 @@ namespace MassTransitSample
             var customMessage = JsonConvert.DeserializeObject<EventGridEvent>(body);
             var serviceBusSendContext = new AzureServiceBusSendContext<EventGridEvent>(customMessage, CancellationToken.None);
 
-            // this is the default scheme, that has to match in order messages to be processeed
+            // this is the default scheme, that has to match in order messages to be processed
             // EventGrid messages type of EventGridEvent within namespace Microsoft.Azure.EventGrid.Models
             string[] messageTypes = { "urn:message:Microsoft.Azure.EventGrid.Models:EventGridEvent" };
             var serviceBusContext = receiveContext as ServiceBusReceiveContext;
